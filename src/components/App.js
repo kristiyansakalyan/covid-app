@@ -4,7 +4,8 @@ import {Router, Route, Switch} from 'react-router-dom';
 import {Header} from './Header';
 import history from '../history';
 import { makeStyles } from '@material-ui/core/styles';
-import { GlobalDataTable } from './GlobalDataList/GlobalDataTable';
+import { ByCountryForm } from './ByCountryData/ByCountryForm';
+import { ByCountryData } from './ByCountryData/ByCountryData';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,6 +35,8 @@ export default function App(props) {
                         <Switch>
                             <Route path="/" exact component={GlobalData} />
                             <Route path="/global" exact component={GlobalData} />
+                            <Route path="/byCountry" exact component={ByCountryForm} />
+                            <Route path="/byCountry/:country" exact component={ByCountryData} />
                         </Switch>
                     </main>
                 </div>

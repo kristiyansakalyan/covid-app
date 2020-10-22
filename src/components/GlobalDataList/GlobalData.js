@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { shallowEqual, useSelector,useDispatch } from 'react-redux';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {GlobalDataTable} from './GlobalDataTable';
+import {FETCH_DATA_REQUEST, FETCH_BYCOUNTRY_DATA_REQUEST} from '../../actions/types';
 
 
 export const GlobalData = () => {
@@ -11,21 +12,21 @@ export const GlobalData = () => {
 
 
     useEffect(() => {
-        dispatch({type: 'FETCH_DATA_REQUESTED'});
+        dispatch({type: FETCH_DATA_REQUEST});
     }, [dispatch]);
 
     if(data.loading) {
         return <div><CircularProgress/> </div>
     } 
-    else if(data.error) {
+    if(data.error) {
         return <div>{data.error}</div>
     } 
-    else {
-        return (
-            <div>
-                <GlobalDataTable />
-            </div>
-        )
-    }
+    
+    return (
+        <div>
+            <GlobalDataTable />
+        </div>
+    )
+    
 
 }

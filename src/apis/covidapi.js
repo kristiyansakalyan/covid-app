@@ -14,16 +14,18 @@ export const fetchGlobalData = async () => {
     }
 }
 
-export const fetchByCountryData = async ({Country}) => {
+export const fetchByCountryData = async ({Country,from,to}) => {
     try {
+        console.log(from);
+        console.log(to);
         const response = await covid.get(`/country/${Country}`, {
-            from: '2020-03-01T00:00:00Z',
-            to: new Date().toISOString()
-        });
+            params: {
+                from: from,
+                to: to
+        }});
         return response;
     } catch (error) {
-        console.log('error', error);
-        return error;
+        throw error;
     }
 }
 

@@ -5,9 +5,9 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    data: {},
+    data: undefined,
     error: null,
-    loading: true
+    loading: undefined
 };
 
 export const byCountryDataReducer = (state=INITIAL_STATE, action) => {

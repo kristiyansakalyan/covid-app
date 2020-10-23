@@ -15,9 +15,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
   appBar: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth
@@ -29,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     width: drawerWidth,
   },
-  // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
@@ -45,7 +41,7 @@ export const Header = () => {
 
 
     return (
-    <div>
+    <React.Fragment>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
@@ -72,6 +68,6 @@ export const Header = () => {
           ))}
         </List>
       </Drawer>
-      </div>
+      </React.Fragment>
     );
 };

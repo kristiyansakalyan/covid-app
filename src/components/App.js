@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     content: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.default,
-      padding: theme.spacing(3),
+      padding: theme.spacing(2)
     }
 }));
 
@@ -28,9 +28,9 @@ export default function App(props) {
         
     <div className={classes.root}>
             <Router history={history}>
-                <div className={classes.root}>
+                
                     <Header />
-                    <main className={classes.content}>
+                    <main className={classes.content} >
                         <div className={classes.toolbar} />
                         <Switch>
                             <Route path="/" exact component={GlobalData} />
@@ -39,7 +39,7 @@ export default function App(props) {
                             <Route path="/byCountry/:country" exact component={ByCountryData} />
                         </Switch>
                     </main>
-                </div>
+                
             </Router>
         </div>
     );

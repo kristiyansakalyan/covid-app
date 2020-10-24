@@ -1,0 +1,41 @@
+            <TableContainer component={Paper}>
+                <Table className={classes.table} aria-label="simple table">
+                    <TableHead>
+                    <TableRow>
+                        <TableCell align="center">Country</TableCell>
+                        <TableCell align="center">Total cases</TableCell>
+                        <TableCell align="center">Total deaths</TableCell>
+                        <TableCell align="center">Total recovered</TableCell>
+                        <TableCell align="center">New cases</TableCell>
+                        <TableCell align="center">New deaths</TableCell>
+                        <TableCell align="center">New recovered</TableCell>
+                    </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow key={'World'}>
+                            <TableCell align="center"><b>World</b></TableCell>
+                            <TableCell align="center">{data.data.Global.TotalConfirmed}</TableCell>
+                            <TableCell align="center">{data.data.Global.TotalDeaths}</TableCell>
+                            <TableCell align="center">{data.data.Global.TotalRecovered}</TableCell>
+                            <TableCell align="center">{data.data.Global.NewConfirmed}</TableCell>
+                            <TableCell align="center">{data.data.Global.NewDeaths}</TableCell>
+                            <TableCell align="center">{data.data.Global.NewRecovered}</TableCell>
+                        </TableRow>
+                    {data.data.Countries.map((country) => (
+                        <TableRow key={country.Country}>
+                            <TableCell align="center">
+                                <Link to={`byCountry/${country.Slug}`}>
+                                    {country.Country}
+                                </Link>    
+                            </TableCell>
+                            <TableCell align="center">{country.TotalConfirmed}</TableCell>
+                            <TableCell align="center">{country.TotalDeaths}</TableCell>
+                            <TableCell align="center">{country.TotalRecovered}</TableCell>
+                            <TableCell align="center">{country.NewConfirmed}</TableCell>
+                            <TableCell align="center">{country.NewDeaths}</TableCell>
+                            <TableCell align="center">{country.NewRecovered}</TableCell>
+                        </TableRow>
+                    ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
